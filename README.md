@@ -7,8 +7,8 @@ Build in not changed on Release (Default, Prod or UAT)
 
 Revision is changed to the SVN Last committed at revision
 
-
-e.g. 2014.2.32.463
+Versioning example:
+2014.2.31.460 -> 2014.2.32.463
 
 
 Usage: SVNBuildVersioning.exe [Project Directory] [Assembly Name] [Build Type]
