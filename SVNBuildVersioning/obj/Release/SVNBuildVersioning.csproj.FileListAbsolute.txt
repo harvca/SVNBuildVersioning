@@ -3,3 +3,5 @@ D:\Projects\SVNBuildVersioning\SVNBuildVersioning\bin\Release\SVNBuildVersioning
 D:\Projects\SVNBuildVersioning\SVNBuildVersioning\obj\Release\SVNBuildVersioning.csprojResolveAssemblyReference.cache
 D:\Projects\SVNBuildVersioning\SVNBuildVersioning\obj\Release\SVNBuildVersioning.exe
 D:\Projects\SVNBuildVersioning\SVNBuildVersioning\obj\Release\SVNBuildVersioning.pdb
+C:\Projects\Contract\SVNBuildVersioning\SVNBuildVersioning\obj\Release\SVNBuildVersioning.exe
+C:\Projects\Contract\SVNBuildVersioning\SVNBuildVersioning\obj\Release\SVNBuildVersioning.pdb

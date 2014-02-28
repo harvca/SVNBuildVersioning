@@ -31,17 +31,12 @@ namespace SVNBuildVersioning
                 Log.Add("assemblyInfoPath: " + assemblyInfoPath, logFile);
                 Log.Add("subWCRevPath: " + subWCRevPath, logFile);
 
-                
-                //["]([0-9]+)([.][0-9]+[.][0-9]+[.][0-9]+)["]
-
                 string assemblyInfoData = System.IO.File.ReadAllText(assemblyInfoPath);
                 Match rxmVersion = Regex.Match(assemblyInfoData, "([0-9]+)([.][0-9]+[.][0-9]+[.][0-9]+)");
 
                 Version oldAssemblyVersion = new Version(rxmVersion.Value);
 
                 Log.Add("oldAssemblyVersion: " + oldAssemblyVersion, logFile);
-                
-
 
                 System.Diagnostics.ProcessStartInfo SubWCRevProcessStartInfo = new System.Diagnostics.ProcessStartInfo();
                 SubWCRevProcessStartInfo.UseShellExecute = false;
