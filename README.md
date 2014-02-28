@@ -1,5 +1,6 @@
 SVNBuildVersioning
 ==================
+For this project to work TortoiseSVN needs to be installed
 
 Major and Minor are not changed.
 
