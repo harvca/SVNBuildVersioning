@@ -1,0 +1,5 @@
+D:\Projects\SVNBuildVersioning\SVNBuildVersioning\bin\Debug\SVNBuildVersioning.exe
+D:\Projects\SVNBuildVersioning\SVNBuildVersioning\bin\Debug\SVNBuildVersioning.pdb
+D:\Projects\SVNBuildVersioning\SVNBuildVersioning\obj\Debug\SVNBuildVersioning.csprojResolveAssemblyReference.cache
+D:\Projects\SVNBuildVersioning\SVNBuildVersioning\obj\Debug\SVNBuildVersioning.exe
+D:\Projects\SVNBuildVersioning\SVNBuildVersioning\obj\Debug\SVNBuildVersioning.pdb
