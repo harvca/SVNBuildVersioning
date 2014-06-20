@@ -1,10 +1,10 @@
 SVNBuildVersioning
 ==================
-For this project to work TortoiseSVN needs to be installed
+This project required TortoiseSVN to be installed
 
 Major and Minor are not changed.
 
-Build in not changed on Release (Default, Prod or UAT)
+Build not changed on Release (Default, Prod or UAT)
 
 Revision is changed to the SVN Last committed at revision
 
