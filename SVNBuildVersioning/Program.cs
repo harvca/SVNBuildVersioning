@@ -19,24 +19,24 @@ namespace SVNBuildVersioning
                 string buildType = args[2];
                 bool isRelease = buildType.ToLower() == "release" || buildType.ToLower() == "prod" || buildType.ToLower() == "uat" ? true : false;
                 string assemblyInfoPath = string.Format("{0}Properties\\AssemblyInfo.cs", projectPath);
-                string subWCRevPath = @"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe";
+                string subWCRevPath = string.Format("{0}\\bin\\SubWCRev.exe", AppSettings.TortoiseSVNPath);
                 string lastCommittedRevision = string.Empty;
-                string logFile = string.Format("C:\\Logs\\SVNBuildVersioning-{0}.log", DateTime.Now.ToString("yyyyMM"));
+              
 
-                Log.Add("--------------------------------------------------------------------------------", logFile);
-                Log.Add("projectPath: " + projectPath, logFile);
-                Log.Add("assembly: " + assembly, logFile);
-                Log.Add("buildType: " + buildType, logFile);
-                Log.Add("isRelease: " + isRelease, logFile);
-                Log.Add("assemblyInfoPath: " + assemblyInfoPath, logFile);
-                Log.Add("subWCRevPath: " + subWCRevPath, logFile);
+                Log.Add("--------------------------------------------------------------------------------");
+                Log.Add("projectPath: " + projectPath);
+                Log.Add("assembly: " + assembly);
+                Log.Add("buildType: " + buildType);
+                Log.Add("isRelease: " + isRelease);
+                Log.Add("assemblyInfoPath: " + assemblyInfoPath);
+                Log.Add("subWCRevPath: " + subWCRevPath);
 
                 string assemblyInfoData = System.IO.File.ReadAllText(assemblyInfoPath);
                 Match rxmVersion = Regex.Match(assemblyInfoData, "([0-9]+)([.][0-9]+[.][0-9]+[.][0-9]+)");
 
                 Version oldAssemblyVersion = new Version(rxmVersion.Value);
 
-                Log.Add("oldAssemblyVersion: " + oldAssemblyVersion, logFile);
+                Log.Add("oldAssemblyVersion: " + oldAssemblyVersion);
 
                 System.Diagnostics.ProcessStartInfo SubWCRevProcessStartInfo = new System.Diagnostics.ProcessStartInfo();
                 SubWCRevProcessStartInfo.UseShellExecute = false;
@@ -52,7 +52,7 @@ namespace SVNBuildVersioning
                         string resRaw = sm.ReadToEnd();
                         string[] res = resRaw.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                         lastCommittedRevision = res[1].Replace("Last committed at revision ", "");
-                        Log.Add("lastCommittedRevision: " + lastCommittedRevision, logFile);
+                        Log.Add("lastCommittedRevision: " + lastCommittedRevision);
                     }
                 }
                 int build = oldAssemblyVersion.Build;
@@ -60,13 +60,13 @@ namespace SVNBuildVersioning
                 if (isRelease == false) { build = oldAssemblyVersion.Build + 1; }
 
                 Version newAssemblyVersion = Version.Parse(string.Format("{0}.{1}.{2}.{3}", oldAssemblyVersion.Major, oldAssemblyVersion.Minor, build, lastCommittedRevision));
-                Log.Add("newAssemblyVersion: " + newAssemblyVersion, logFile);
+                Log.Add("newAssemblyVersion: " + newAssemblyVersion);
 
                 if (newAssemblyVersion > oldAssemblyVersion)
                 {
                     System.IO.File.WriteAllText(assemblyInfoPath, Regex.Replace(assemblyInfoData, "([0-9]+)([.][0-9]+[.][0-9]+[.][0-9]+)", newAssemblyVersion.ToString()));
                 }
-                Log.Add("--------------------------------------------------------------------------------", logFile);
+                Log.Add("--------------------------------------------------------------------------------");
             }
             else
             {

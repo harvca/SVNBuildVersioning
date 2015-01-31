@@ -7,18 +7,18 @@ namespace SVNBuildVersioning
 {
    public class Log
     {
-       public static void Add(string message, string logFile)
+       public static void Add(string message)
        {
-           try
-           {
-               if (System.IO.File.Exists(logFile) == false)
+           //try
+           //{
+               if (System.IO.File.Exists(AppSettings.LogFile) == false)
                {
-                   System.IO.File.Create(logFile).Close();
+                   System.IO.File.Create(AppSettings.LogFile).Close();
                }
                Console.WriteLine(message);
-               System.IO.File.AppendAllText(logFile, message + Environment.NewLine);
-           }
-           catch { }
+               System.IO.File.AppendAllText(AppSettings.LogFile, message + Environment.NewLine);
+           //}
+           //catch { }
        }
     }
 }
