@@ -13,7 +13,7 @@ namespace SVNBuildVersioning
             AssemblyName asm = new AssemblyName(assemblyName);
             return asm.Version;
         }
-        public static string LogFile = string.Format("{0}\\SVNBuildVersioning-{1}.log", AppSettings.LogDIR, DateTime.Now.ToString("yyyyMM"));
+        public static string LogFile;// = string.Format("{0}\\SVNBuildVersioning-{1}.log", AppSettings.LogDIR, DateTime.Now.ToString("yyyyMM"));
 
         public static string LogDIR
         {

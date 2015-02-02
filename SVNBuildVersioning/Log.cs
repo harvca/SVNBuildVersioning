@@ -9,16 +9,16 @@ namespace SVNBuildVersioning
     {
        public static void Add(string message)
        {
-           //try
-           //{
+           try
+           {
                if (System.IO.File.Exists(AppSettings.LogFile) == false)
                {
                    System.IO.File.Create(AppSettings.LogFile).Close();
                }
                Console.WriteLine(message);
                System.IO.File.AppendAllText(AppSettings.LogFile, message + Environment.NewLine);
-           //}
-           //catch { }
+           }
+           catch { }
        }
     }
 }

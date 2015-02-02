@@ -17,6 +17,7 @@ namespace SVNBuildVersioning
                 string projectPath = args[0];
                 string assembly = args[1]; 
                 string buildType = args[2];
+                AppSettings.LogFile = string.Format("{0}\\SVNBuildVersioning-{1}-{2}.log", AppSettings.LogDIR, assembly, DateTime.Now.ToString("yyyyMM"));
                 bool isRelease = buildType.ToLower() == "release" || buildType.ToLower() == "prod" || buildType.ToLower() == "uat" ? true : false;
                 string assemblyInfoPath = string.Format("{0}Properties\\AssemblyInfo.cs", projectPath);
                 string subWCRevPath = string.Format("{0}\\bin\\SubWCRev.exe", AppSettings.TortoiseSVNPath);
